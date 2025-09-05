@@ -33,6 +33,9 @@ func parseTraining(data string) (int, string, time.Duration, error) {
 		if err != nil {
 			return 0, parts[1], 0, err
 		}
+		if duration <= 0 {
+			return 0, parts[1], 0, errors.New("cannot be equal to 0")
+		}
 		return steps, parts[1], duration, nil
 	}
 	return 0, "", 0, nil
