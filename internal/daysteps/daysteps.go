@@ -1,6 +1,7 @@
 package daysteps
 
 import (
+	"errors"
 	"fmt"
 	"log"
 	"strconv"
@@ -32,6 +33,9 @@ func parsePackage(data string) (int, time.Duration, error) {
 		duration, err := time.ParseDuration(parts[1])
 		if err != nil {
 			return 0, 0, err
+		}
+		if duration <= 0 {
+			return 0, 0, errors.New("cannot be equal to 0")
 		}
 		return steps, duration, nil
 	}
