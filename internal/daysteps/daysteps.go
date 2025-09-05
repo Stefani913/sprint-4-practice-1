@@ -28,7 +28,7 @@ func parsePackage(data string) (int, time.Duration, error) {
 			return 0, 0, err
 		}
 		if steps <= 0 {
-			return 0, 0, err
+			return 0, 0, errors.New("cannot be equal to 0")
 		}
 		duration, err := time.ParseDuration(parts[1])
 		if err != nil {
@@ -38,8 +38,9 @@ func parsePackage(data string) (int, time.Duration, error) {
 			return 0, 0, errors.New("cannot be equal to 0")
 		}
 		return steps, duration, nil
+	} else {
+		return 0, 0, errors.New("parts len is less then 2")
 	}
-	return 0, 0, nil
 }
 
 func DayActionInfo(data string, weight, height float64) string {
