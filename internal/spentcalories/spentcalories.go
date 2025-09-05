@@ -67,8 +67,8 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 			distance := distance(steps, height)
 			meanSpeed := meanSpeed(steps, height, duration)
 
-			return fmt.Sprintf("Тип тренировки: %s\nДлительность: %v ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f",
-				activity, duration, distance, meanSpeed, calories), nil
+			return fmt.Sprintf("Тип тренировки: %s\nДлительность: %v ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n",
+				activity, duration.Hours(), distance, meanSpeed, calories), nil
 
 		}
 	case running:
@@ -77,8 +77,8 @@ func TrainingInfo(data string, weight, height float64) (string, error) {
 			distance := distance(steps, height)
 			meanSpeed := meanSpeed(steps, height, duration)
 
-			return fmt.Sprintf("Тип тренировки: %s\nДлительность: %v ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f",
-				activity, duration, distance, meanSpeed, calories), nil
+			return fmt.Sprintf("Тип тренировки: %s\nДлительность: %v ч.\nДистанция: %.2f км.\nСкорость: %.2f км/ч\nСожгли калорий: %.2f\n",
+				activity, duration.Hours(), distance, meanSpeed, calories), nil
 
 		}
 	default:
